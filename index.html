@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Are we reorganized yet?</title>
+        <title>Are we rebranded yet?</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
 
@@ -52,79 +52,11 @@ ul li:first-child {
 
     <body class="vbox">
         <h1 id="answer" class="flex">WAIT</h1>
-        <h2>Days since last reorg: <strong id="last-reorg-days"></strong></h2>
-        <h2>Expected reorg <strong id="next-reorg-days"></strong></h2>
+        <h2>Days since last rebrand: <strong id="last-rebrand-days"></strong></h2>
+        <h2>Expected rebrand <strong id="next-rebrand-days"></strong></h2>
         <ul>
-            <li>(since May 24, 2024)</li>
-            <li>(since February 21, 2024)</li>
-            <li>(since February 8, 2024)</li>
-            <li>(since February 7, 2024)</li>
-            <li>(since January 11, 2024)</li>
-            <li>(since August 14, 2023)</li>
-            <li>(since April 24, 2023)</li>
-            <li>(since April 19, 2023)</li>
-            <li>(since January 26, 2023)</li>
-            <li>(since August 16, 2022)</li>
-            <li>(since June 17, 2022)</li>
-            <li>(since March 2, 2022)</li>
-            <li>(since December 7, 2021)</li>
-            <li>(since May 4, 2021)</li>
-            <li>(since January 19, 2021)</li>
-            <li>(since August 31, 2020)</li>
-            <li>(since August 11, 2020)</li>
-            <li>(since April 8, 2020)</li>
-            <li>(since March 5, 2020)</li>
-            <li>(since January 24, 2020)</li>
-            <li>(since September 24, 2019)</li>
-            <li>(since June 7, 2019)</li>
-            <li>(since May 27, 2019)</li>
-            <li>(since April 25, 2019)</li>
-            <li>(since March 12, 2019)</li>
-            <li>(since February 19, 2019)</li>
-            <li>(since January 30, 2019)</li>
-            <li>(since January 29, 2019)</li>
-            <li>(since October 18, 2018)</li>
-            <li>(since April 6, 2018)</li>
-            <li>(since March 6, 2018)</li>
-            <li>(since February 21, 2018)</li>
-            <li>(since February 1, 2018)</li>
-            <li>(since January 18, 2018)</li>
-            <li>(since December 18, 2017)</li>
-            <li>(since November 21, 2017)</li>
-            <li>(since August 16, 2017)</li>
-            <li>(since June 12, 2017)</li>
-            <li>(since May 5, 2017)</li>
-            <li>(since April 26, 2017)</li>
-            <li>(since April 1, 2017)</li>
-            <li>(since March 17, 2017)</li>
-            <li>(since February 15, 2017)</li>
-            <li>(since February 2, 2017)</li>
-            <li>(since November 11, 2016)</li>
-            <li>(since September 15, 2016)</li>
-            <li>(since August 31, 2016)</li>
-            <li>(since May 23, 2016)</li>
-            <li>(since May 13, 2016)</li>
-            <li>(since April 15, 2016)</li>
-            <li>(since March 21, 2016)</li>
-            <li>(since March 18, 2016)</li>
-            <li>(since January 20, 2016)</li>
-            <li>(since December 8, 2015)</li>
-            <li>(since December 2, 2015)</li>
-            <li>(since November 17, 2015)</li>
-            <li>(since October 15, 2015)</li>
-            <li>(since October 12, 2015)</li>
-            <li>(since September 18, 2015)</li>
-            <li>(since August 27, 2015)</li>
-            <li>(since August 26, 2015)</li>
-            <li>(since July 2, 2015)</li>
-            <li>(since June 18, 2015)</li>
-            <li>(since June 5, 2015)</li>
-            <li>(since May 28, 2015)</li>
-            <li>(since May 20, 2015)</li>
-            <li>(since May 4, 2015)</li>
-            <li>(since April 21, 2015)</li>
-            <li>(since April 14, 2015)</li>
-            <li>(since March 27, 2015)</li>
+            <li>(since June 19, 2024)</li>
+            <li>(since January 18, 2017)</li>
         </ul>
 
         <script>
@@ -182,56 +114,56 @@ var NOW = +new Date();
 var ONE_DAY = 24 * 60 * 60 * 1000;
 
 var lis = $('li');
-var reorgs = [];
+var rebrands = [];
 for (var i = 0; i < lis.length; i++) {
-    reorgs.push(parseDate(lis[i].textContent));
-    // Only use recent reorgs from the last 2 years if there were 10 reorgs
-    // or use the last 10 reorgs (exceeding the past 2 years).
-    if (reorgs.length == 10) {
+    rebrands.push(parseDate(lis[i].textContent));
+    // Only use recent rebrands from the last 2 years if there were 10 rebrands
+    // or use the last 10 rebrands (exceeding the past 2 years).
+    if (rebrands.length == 10) {
         break;
     }
-    if ((+reorgs[0] - +reorgs[reorgs.length - 1]) / ONE_DAY > 2 * 365) {
+    if ((+rebrands[0] - +rebrands[rebrands.length - 1]) / ONE_DAY > 2 * 365) {
         break;
     }
 }
 
-var lastReorg = +reorgs[0];
-var firstReorg = +reorgs[reorgs.length - 1];
+var lastRebrand = +rebrands[0];
+var firstRebrand = +rebrands[rebrands.length - 1];
 
-var daysSinceLastReorg = Math.floor((NOW - lastReorg) / ONE_DAY);
-$('#last-reorg-days').textContent = daysSinceLastReorg;
+var daysSinceLastRebrand = Math.floor((NOW - lastRebrand) / ONE_DAY);
+$('#last-rebrand-days').textContent = daysSinceLastRebrand;
 
-let avgTimeBetweenReorgs;
-if (reorgs.length == 1) {
-    // Only one reorg so far, assume reorg every 8 weeks.
-    avgTimeBetweenReorgs = 8 * 7 * ONE_DAY;
+let avgTimeBetweenRebrands;
+if (rebrands.length == 1) {
+    // Only one rebrand so far, assume rebrand every 8 weeks.
+    avgTimeBetweenRebrands = 8 * 7 * ONE_DAY;
 } else {
-    avgTimeBetweenReorgs = (lastReorg - firstReorg) / (reorgs.length - 1);
+    avgTimeBetweenRebrands = (lastRebrand - firstRebrand) / (rebrands.length - 1);
 }
 
-var expectedNextReorg = lastReorg + avgTimeBetweenReorgs;
-let expectedNextReorgDay = new Date(expectedNextReorg);
-if (expectedNextReorgDay.getDay() == 6) {
+var expectedNextRebrand = lastRebrand + avgTimeBetweenRebrands;
+let expectedNextRebrandDay = new Date(expectedNextRebrand);
+if (expectedNextRebrandDay.getDay() == 6) {
   // Saturday, move it Monday.
-  expectedNextReorg += 2 * ONE_DAY;
-} else if (expectedNextReorgDay.getDay() == 0) {
+  expectedNextRebrand += 2 * ONE_DAY;
+} else if (expectedNextRebrandDay.getDay() == 0) {
   // Sunday, move it Monday.
-  expectedNextReorg += 1 * ONE_DAY;
+  expectedNextRebrand += 1 * ONE_DAY;
 }
 
-var daysToNextReorg = Math.ceil((expectedNextReorg - NOW) / ONE_DAY);
+var daysToNextRebrand = Math.ceil((expectedNextRebrand - NOW) / ONE_DAY);
 
 const relativeTimeFormatter = new Intl.RelativeTimeFormat("en", {
     numeric: "always",
     style: "long",
 });
 
-let nextReorgText = relativeTimeFormatter.format(daysToNextReorg, "day");
-nextReorgText += " (" + (new Date(expectedNextReorg)).toDateString() + ")";
+let nextRebrandText = relativeTimeFormatter.format(daysToNextRebrand, "day");
+nextRebrandText += " (" + (new Date(expectedNextRebrand)).toDateString() + ")";
 
-$('#next-reorg-days').textContent = nextReorgText;
+$('#next-rebrand-days').textContent = nextRebrandText;
 
-$('#answer').textContent = daysToNextReorg > 0 ? 'YES' : 'NO';
+$('#answer').textContent = daysToNextRebrand > 0 ? 'YES' : 'NO';
         </script>
     </body>
 </html>
